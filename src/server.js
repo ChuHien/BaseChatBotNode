@@ -8,14 +8,16 @@ require('dotenv').config();
 
 let app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // set up view engine
 configViewEngine(app);
 
 //init web router
 initWebRoute(app);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}))
+
 
 const port = process.env.PORT || 5000;
 
